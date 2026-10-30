@@ -1,13 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
-
-// Connect to MongoDB (cached — safe for serverless cold starts)
-connectDB().catch((e) => console.error('MongoDB connection failed:', e.message));
 
 // Middleware
 app.use(cors());
