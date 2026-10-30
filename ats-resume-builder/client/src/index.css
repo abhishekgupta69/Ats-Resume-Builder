@@ -1,0 +1,301 @@
+/* ── Design tokens ── */
+:root {
+  --bg: #0f1117;
+  --surface: #171a23;
+  --surface-2: #1e222d;
+  --border: #2a2f3a;
+  --text: #e6e8ee;
+  --muted: #9aa1b2;
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+a { color: var(--primary-hover); text-decoration: none; }
+h1, h2, h3 { margin: 0.3em 0; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px; }
+.muted { color: var(--muted); }
+
+/* ── Navbar ── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.brand { font-weight: 800; font-size: 1.2rem; color: var(--text); }
+.brand span { color: var(--primary); }
+.nav-links { display: flex; align-items: center; gap: 18px; }
+.nav-links a { color: var(--muted); font-weight: 500; }
+.nav-links a:hover { color: var(--text); }
+.nav-user { color: var(--muted); font-size: 0.9rem; }
+
+/* ── Buttons ── */
+.btn {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 9px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.btn:hover { border-color: var(--primary); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: var(--primary); border-color: var(--primary); }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-ghost { background: transparent; }
+.btn-danger:hover { border-color: var(--red); color: var(--red); }
+.btn-sm { padding: 6px 12px; font-size: 0.8rem; }
+.btn-block { width: 100%; }
+
+/* ── Forms ── */
+input, textarea, select {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 10px 12px;
+  font-size: 0.92rem;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+textarea { resize: vertical; }
+.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid var(--red);
+  color: var(--red);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+.good { color: var(--green); }
+.warn { color: var(--amber); }
+.bad { color: var(--red); }
+
+/* ── Auth pages ── */
+.auth-card {
+  max-width: 400px;
+  margin: 60px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+.auth-card h1 { margin-top: 0; }
+
+/* ── Dashboard ── */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.card-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.empty-state {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--muted);
+}
+
+/* ── Builder ── */
+.title-input {
+  font-size: 1.3rem;
+  font-weight: 700;
+  max-width: 320px;
+  margin-bottom: 0;
+}
+.header-actions { display: flex; gap: 10px; align-items: center; }
+.header-actions select { width: auto; margin-bottom: 0; }
+
+.builder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.sub-panel {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.83rem;
+}
+.chip button {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  line-height: 1;
+}
+.chip button:hover { color: var(--red); }
+.chip-green { border-color: var(--green); color: var(--green); }
+.chip-red { border-color: var(--red); color: var(--red); }
+
+/* ── Resume preview paper ── */
+.preview-wrap { position: sticky; top: 80px; }
+.resume-paper {
+  background: #fff;
+  color: #1a1a1a;
+  border-radius: 6px;
+  padding: 40px 44px;
+  min-height: 600px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.rp-name {
+  font-size: 1.9rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.resume-paper.classic .rp-name { text-align: center; }
+.rp-contact {
+  font-size: 0.82rem;
+  color: #444;
+  margin: 4px 0 14px;
+}
+.resume-paper.classic .rp-contact { text-align: center; }
+.resume-paper section { margin-top: 16px; }
+.resume-paper h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 3px;
+  color: #111;
+}
+.resume-paper.classic h2 { border-bottom: 1px solid #999; }
+.resume-paper p { font-size: 0.9rem; line-height: 1.55; margin: 6px 0; }
+.rp-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+.rp-chip {
+  background: #eef0ff;
+  color: #3730a3;
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+}
+.resume-paper.classic .rp-chip { background: #f1f1f1; color: #333; }
+.rp-item { margin-bottom: 10px; }
+.rp-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+.rp-row span { color: #555; white-space: nowrap; }
+
+/* ── ATS page ── */
+.ats-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.result-panel { margin-top: 24px; }
+.result-top { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-bottom: 16px; }
+.gauge { text-align: center; }
+.gauge-label { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 60px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.bar-label { font-size: 0.88rem; color: var(--muted); }
+.bar-track {
+  background: var(--surface-2);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+.bar-value { font-size: 0.82rem; color: var(--muted); text-align: right; }
+
+.suggestions { color: var(--muted); line-height: 1.7; padding-left: 20px; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .builder-grid, .ats-form { grid-template-columns: 1fr; }
+  .preview-wrap { position: static; }
+  .bar-row { grid-template-columns: 110px 1fr 50px; }
+}
+
+/* ── Print: only the resume paper is visible (Export PDF via browser print) ── */
+@media print {
+  body * { visibility: hidden; }
+  .resume-paper, .resume-paper * { visibility: visible; }
+  .resume-paper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    min-height: auto;
+    margin: 0;
+    padding: 20px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
