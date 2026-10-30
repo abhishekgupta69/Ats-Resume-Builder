@@ -119,7 +119,7 @@ function (`api/index.js`), the React app builds from `client/`, and
 1. **Push to GitHub** (`node_modules`, `.env` and `client/dist` are git-ignored)
 2. **MongoDB Atlas** → Network Access → allow `0.0.0.0/0` (required so Vercel's
    serverless IPs can connect)
-3. **[vercel.com/new](https://vercel.com/new)** → Import the repo. Vercel reads
+3. **[vercel.com/new]([https://vercel.com/new](https://ats-resume-builder-one-pi.vercel.app))** → Import the repo. Vercel reads
    `vercel.json` automatically — no build settings to change
 4. **Environment Variables** (Project → Settings → Environment Variables):
 
@@ -128,7 +128,7 @@ function (`api/index.js`), the React app builds from `client/`, and
    | `MONGO_URI` | your MongoDB Atlas connection string |
    | `JWT_SECRET` | long random string |
 
-5. **Deploy** — then test `https://your-app.vercel.app/api/health`
+5. **Deploy** — `[https://your-app.vercel.app/api/health](https://ats-resume-builder-one-pi.vercel.app)`
 6. Put the live URL on your resume 🎉
 
 Notes:
