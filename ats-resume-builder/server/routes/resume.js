@@ -1,69 +1,107 @@
-const router = require('express').Router();
-const Resume = require('../models/Resume');
+const express = require('express');
+const router = express.Router();
 const auth = require('../middleware/auth');
+const Resume = require('../models/Resume');
 
-// All routes below require authentication
-router.use(auth);
-
-// @route   POST /api/resumes
-// @desc    Create a new resume
-router.post('/', async (req, res, next) => {
+// Save a new resume
+router.post('/', auth, async (req, res) => {
   try {
-    const resume = await Resume.create({ ...req.body, user: req.user.id });
+    const {
+      fullName, title, email, phone, location, linkedin, github,
+      summary, experience, education, projects, skills, certifications
+    } = req.body;
+
+    const newResume = new Resume({
+      user: req.user.id,
+      fullName,
+      title: title || 'Untitled Resume',
+      email,
+      phone,
+      location,
+      linkedin,
+      github,
+      summary,
+      experience: experience || [],
+      education: education || [],
+      projects: projects || [],
+      skills: skills || {},
+      certifications: certifications || []
+    });
+
+    const resume = await newResume.save();
     res.status(201).json(resume);
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    console.error('Save resume error:', err);
+    res.status(500).json({ message: 'Failed to save resume' });
   }
 });
 
-// @route   GET /api/resumes
-// @desc    Get all resumes of logged-in user
-router.get('/', async (req, res, next) => {
+// Get all resumes for the logged-in user
+router.get('/', auth, async (req, res) => {
   try {
-    const resumes = await Resume.find({ user: req.user.id }).sort('-updatedAt');
+    const resumes = await Resume.find({ user: req.user.id }).sort({ createdAt: -1 });
     res.json(resumes);
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    console.error('Get resumes error:', err);
+    res.status(500).json({ message: 'Server error' });
   }
 });
 
-// @route   GET /api/resumes/:id
-// @desc    Get a single resume (owner only)
-router.get('/:id', async (req, res, next) => {
+// Get a specific resume by ID
+router.get('/:id', auth, async (req, res) => {
   try {
-    const resume = await Resume.findOne({ _id: req.params.id, user: req.user.id });
-    if (!resume) return res.status(404).json({ message: 'Resume not found' });
+    const resume = await Resume.findOne({ 
+      _id: req.params.id,
+      user: req.user.id 
+    });
+    
+    if (!resume) {
+      return res.status(404).json({ message: 'Resume not found' });
+    }
+    
     res.json(resume);
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    console.error('Get resume error:', err);
+    res.status(500).json({ message: 'Server error' });
   }
 });
 
-// @route   PUT /api/resumes/:id
-// @desc    Update a resume (owner only)
-router.put('/:id', async (req, res, next) => {
+// Update a resume
+router.put('/:id', auth, async (req, res) => {
   try {
     const resume = await Resume.findOneAndUpdate(
       { _id: req.params.id, user: req.user.id },
       req.body,
       { new: true, runValidators: true }
     );
-    if (!resume) return res.status(404).json({ message: 'Resume not found' });
+    
+    if (!resume) {
+      return res.status(404).json({ message: 'Resume not found' });
+    }
+    
     res.json(resume);
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    console.error('Update resume error:', err);
+    res.status(500).json({ message: 'Failed to update resume' });
   }
 });
 
-// @route   DELETE /api/resumes/:id
-// @desc    Delete a resume (owner only)
-router.delete('/:id', async (req, res, next) => {
+// ✅ DELETE a resume
+router.delete('/:id', auth, async (req, res) => {
   try {
-    const resume = await Resume.findOneAndDelete({ _id: req.params.id, user: req.user.id });
-    if (!resume) return res.status(404).json({ message: 'Resume not found' });
-    res.json({ message: 'Resume deleted' });
-  } catch (error) {
-    next(error);
+    const resume = await Resume.findOneAndDelete({
+      _id: req.params.id,
+      user: req.user.id
+    });
+    
+    if (!resume) {
+      return res.status(404).json({ message: 'Resume not found' });
+    }
+    
+    res.json({ message: 'Resume deleted successfully' });
+  } catch (err) {
+    console.error('Delete resume error:', err);
+    res.status(500).json({ message: 'Failed to delete resume' });
   }
 });
 

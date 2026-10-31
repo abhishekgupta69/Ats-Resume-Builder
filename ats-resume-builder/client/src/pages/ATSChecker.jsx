@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import * as pdfjsLib from 'pdfjs-dist';
+// Import the worker file directly from node_modules (Vite compatible)
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import api from '../api/axios';
 import ScoreGauge from '../components/ScoreGauge';
+
+// Configure the PDF.js worker to use the local imported file
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export default function ATSChecker() {
   const location = useLocation();
@@ -12,10 +18,59 @@ export default function ATSChecker() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     api.get('/resumes').then((res) => setResumes(res.data)).catch(() => {});
   }, []);
+
+  const handleFileUpload = async (event) => {
+    const file = event.target.files[0];
+    
+    if (!file) {
+      alert('No file selected.');
+      return;
+    }
+    
+    console.log('File selected:', file.name, file.type, file.size);
+
+    if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+      alert('Please upload a valid PDF file.');
+      return;
+    }
+
+    setIsUploading(true);
+    try {
+      console.log('Starting PDF extraction...');
+      const arrayBuffer = await file.arrayBuffer();
+      console.log('File loaded, size:', arrayBuffer.byteLength, 'bytes');
+      
+      const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+      const pdf = await loadingTask.promise;
+      console.log('PDF loaded successfully, pages:', pdf.numPages);
+      
+      let fullText = '';
+      for (let i = 1; i <= pdf.numPages; i++) {
+        console.log('Extracting page', i);
+        const page = await pdf.getPage(i);
+        const textContent = await page.getTextContent();
+        const pageText = textContent.items.map(item => item.str).join(' ');
+        fullText += pageText + '\n';
+      }
+      
+      console.log('Extraction complete! Text length:', fullText.length);
+      console.log('Extracted text preview:', fullText.substring(0, 200));
+      
+      setResumeText(fullText);
+      alert('✅ PDF extracted successfully! Text has been loaded into the textarea.');
+    } catch (error) {
+      console.error('Detailed PDF error:', error);
+      console.error('Error stack:', error.stack);
+      alert(`❌ Failed to read PDF.\n\nError: ${error.message}\n\nCheck the browser console (F12) for more details.`);
+    } finally {
+      setIsUploading(false);
+    }
+  };
 
   const score = async (e) => {
     e.preventDefault();
@@ -51,6 +106,35 @@ export default function ATSChecker() {
       <form onSubmit={score} className="ats-form">
         <div className="panel">
           <h3>1. Choose your resume</h3>
+          
+          <div style={{ marginBottom: '15px' }}>
+            <label 
+              htmlFor="pdf-upload" 
+              style={{
+                display: 'inline-block',
+                padding: '10px 16px',
+                backgroundColor: isUploading ? '#9ca3af' : '#4f46e5',
+                color: 'white',
+                borderRadius: '6px',
+                cursor: isUploading ? 'not-allowed' : 'pointer',
+                fontWeight: 'bold',
+                fontSize: '14px',
+                textAlign: 'center',
+                transition: 'background-color 0.2s'
+              }}
+            >
+              {isUploading ? '⏳ Extracting text...' : '📄 Upload PDF from Device'}
+            </label>
+            <input 
+              id="pdf-upload"
+              type="file" 
+              accept="application/pdf" 
+              onChange={handleFileUpload} 
+              disabled={isUploading}
+              style={{ display: 'none' }} 
+            />
+          </div>
+
           <select value={resumeId} onChange={(e) => setResumeId(e.target.value)}>
             <option value="">— Select a saved resume —</option>
             {resumes.map((r) => (
@@ -62,7 +146,7 @@ export default function ATSChecker() {
           <p className="muted">— or paste resume text —</p>
           <textarea
             rows="6"
-            placeholder="Paste your resume text here..."
+            placeholder="Paste your resume text here or upload a PDF..."
             value={resumeText}
             onChange={(e) => setResumeText(e.target.value)}
           />

@@ -13,7 +13,6 @@
   --red: #ef4444;
   --radius: 10px;
 }
-
 * { box-sizing: border-box; }
 
 body {
@@ -297,5 +296,360 @@ textarea { resize: vertical; }
     padding: 20px;
     box-shadow: none;
     border-radius: 0;
+  }
+}
+/* ── Resume Builder Mobile Responsive ── */
+.builder-page {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 16px;
+}
+
+.builder-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.builder-top-bar h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.builder-top-bar-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.builder-top-bar-actions select,
+.builder-top-bar-actions button {
+  margin-bottom: 0;
+  width: auto;
+}
+
+.builder-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.builder-editor {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.builder-preview {
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.resume-paper-builder {
+  background: #fff;
+  color: #1a1a1a;
+  border-radius: 6px;
+  padding: 40px 44px;
+  min-height: 800px;
+  min-width: 650px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  font-family: Georgia, 'Times New Roman', serif;
+  margin: 0 auto;
+}
+
+.upload-box {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 2px dashed var(--primary);
+  border-radius: var(--radius);
+}
+
+.upload-box label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.section-title {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 16px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.add-btn {
+  padding: 5px 12px;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.item-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--red);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0;
+  line-height: 1;
+}
+
+.empty-hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.helper-text {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: -6px;
+  margin-bottom: 10px;
+}
+
+/* ── Mobile Responsive ── */
+@media (max-width: 1024px) {
+  .builder-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .builder-editor {
+    max-height: none;
+  }
+
+  .builder-preview {
+    position: static;
+    max-height: none;
+  }
+
+  .resume-paper-builder {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 640px) {
+  .builder-page {
+    padding: 10px;
+  }
+
+  .builder-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px;
+  }
+
+  .builder-top-bar h1 {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .builder-top-bar-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .builder-top-bar-actions select,
+  .builder-top-bar-actions button {
+    flex: 1;
+    min-width: 100px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .builder-editor {
+    padding: 14px;
+  }
+
+  .resume-paper-builder {
+    padding: 24px 28px;
+    min-width: 580px;
+  }
+
+  .row-2 {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================
+   MOBILE RESPONSIVENESS FIXES
+   ========================================= */
+
+/* Prevent horizontal scrolling on the whole app */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+@media (max-width: 768px) {
+  /* 1. Fix Navbar: Stack vertically so links don't get cut off */
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .navbar .brand {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    background: var(--surface-2);
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .nav-user {
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    color: var(--muted);
+  }
+
+  /* 2. Fix Container overflow */
+  .container {
+    padding: 16px 12px 40px;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* 3. Fix Page Headers (My Resumes, Resume Builder) */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+    word-wrap: break-word;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .header-actions select,
+  .header-actions .btn,
+  .page-header .btn {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* 4. Fix Dashboard Cards */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 16px;
+    word-wrap: break-word;
+  }
+
+  .card-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 5. Fix Empty State text overflow */
+  .empty-state {
+    padding: 40px 10px;
+  }
+
+  .empty-state h2,
+  .empty-state p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* 6. Fix Builder Grid on small screens */
+  .builder-grid {
+    gap: 16px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .row-2 {
+    grid-template-columns: 1fr; /* Stack side-by-side inputs vertically on mobile */
+  }
+
+  /* 7. Make resume preview scrollable horizontally instead of squishing */
+  .preview-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+  }
+
+  .resume-paper {
+    min-width: 600px; /* Forces horizontal scroll instead of breaking layout */
+    padding: 24px 28px;
   }
 }
