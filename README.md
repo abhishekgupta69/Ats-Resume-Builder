@@ -40,3 +40,5 @@ ats-resume-builder/
 ├── vercel.json         # Vercel deployment configuration
 ├── .gitignore          # Ignored files (e.g., .env, node_modules)
 └── package.json        # Root dependencies and scripts
+
+Updated for deployment fix.
