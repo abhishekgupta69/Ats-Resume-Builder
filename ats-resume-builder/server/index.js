@@ -1,4 +1,12 @@
-// Add this at the top of your routes, before other routes
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
+
+const connectDB = require('./config/db');
+const app = require('./app'); // ⚠️ 'app' MUST be defined here first!
+
+// ==========================================
+// ✅ HEALTH CHECK ROUTES (Put them HERE, after 'app' is defined)
+// ==========================================
 app.get('/', (req, res) => {
   res.json({ 
     message: 'ATS Resume Builder API is running!',
@@ -7,16 +15,10 @@ app.get('/', (req, res) => {
   });
 });
 
-// Optional: Add a health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'healthy', uptime: process.uptime() });
 });
-
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
-
-const connectDB = require('./config/db');
-const app = require('./app');
+// ==========================================
 
 const startServer = async () => {
   try {
