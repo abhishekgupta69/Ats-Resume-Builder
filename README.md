@@ -41,4 +41,5 @@ ats-resume-builder/
 ├── .gitignore          # Ignored files (e.g., .env, node_modules)
 └── package.json        # Root dependencies and scripts
 
-Updated for deployment fix.
+
+Updated for deployment fix
