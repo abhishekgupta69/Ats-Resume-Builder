@@ -4,12 +4,12 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=2563EB&center=true&vCenter=true&width=700&height=50&lines=Build+your+resume.;Score+it+against+any+job+description.;Get+past+the+ATS.;Get+hired." alt="Typing SVG" />
 </p>
 
-<h1 align="center">ResumeATS - ATS Resume Builder and Scoring Platformr</h1>
+<h1 align="center">ResumeATS - ATS Resume Builder & Scoring Platform</h1>
 <h3 align="center">Build. Score. Get Hired.</h3>
 
 <p align="center">
-  <strong>Build, customize and export professional resumes — then check how well they score against any job description.</strong><br/>
-  A full-stack MERN app for job seekers who want to get past the ATS and reach a real recruiter.
+  <strong>Build, customize, and export professional resumes — then check how well they score against any job description.</strong><br/>
+  A full-stack MERN application designed to help job seekers optimize their resumes for Applicant Tracking Systems (ATS) and land real interviews.
 </p>
 
 <p align="center">
@@ -43,7 +43,8 @@
 
 <br/>
 
-<img src="client/public/screenshots/home.png" alt="ATS Resume Builder Home" width="85%" />
+<!-- Replace this with an actual screenshot of your app once you add it to client/public/screenshots/ -->
+<img src="https://via.placeholder.com/800x400/0f172a/2563EB?text=ATS+Resume+Builder+Screenshot" alt="ATS Resume Builder Dashboard" width="85%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
 
 </div>
 
@@ -52,9 +53,9 @@
 ## 📌 Table of Contents
 
 - [🌟 Overview](#-overview)
+- [🔑 Demo Credentials](#-demo-credentials)
 - [🌐 Live Demo](#-live-demo)
 - [✨ Features](#-features)
-- [📸 Screenshots](#-screenshots)
 - [🛠️ Tech Stack](#️-tech-stack)
 - [🎯 How It Works](#-how-it-works)
 - [📂 Project Structure](#-project-structure)
@@ -62,29 +63,37 @@
 - [🔑 Environment Variables](#-environment-variables)
 - [📡 API Endpoints](#-api-endpoints)
 - [☁️ Deployment](#️-deployment)
-- [🧪 Testing](#-testing)
+- [🗺️ Future Roadmap](#️-future-roadmap)
 - [🤝 Contributing](#-contributing)
 - [👨‍💻 Author](#-author)
-- [📄 License](#-license)
 
 ---
 
 ## 🌟 Overview
 
-**ATS Resume Builder** helps job seekers create a clean, professional resume and then test it the way a company's hiring software would. Most companies use an **Applicant Tracking System (ATS)** to filter resumes before a human ever reads them. A good-looking resume can still get rejected if it doesn't match the job description.
+**ATS Resume Builder** helps job seekers create clean, professional resumes and test them exactly as a company's hiring software would. Most companies use an **Applicant Tracking System (ATS)** to filter resumes before a human ever reads them. A good-looking resume can still get rejected if it lacks the right keywords or formatting.
 
-This app solves both problems in one place: **build the resume**, then **score it** against the job you are applying for.
+This app solves both problems in one place: **build the resume**, then **score it** against the specific job description you are applying for.
 
-> 💡 **Our goal:** Help every fresher and job seeker send a resume that is clear, well-formatted and ready for the ATS.
+> 💡 **Our Goal:** Empower every fresher and job seeker to send a resume that is clear, well-formatted, and optimized to pass the ATS and reach a real recruiter.
 
 ### Why ATS Resume Builder?
 
 | Typical Resume Maker | ATS Resume Builder |
 |----------------------|--------------------|
-| 🎨 Only focuses on design | 🎯 Design **and** ATS score together |
-| 📄 Starts from a blank form | 🔄 Auto-fill from your old PDF resume |
-| 💸 Often locks PDF download behind payment | 📥 One-click PDF export |
-| 📌 One resume, one device | ☁️ Multiple resumes saved in the cloud |
+| 🎨 Only focuses on visual design | 🎯 Design **and** ATS compatibility score |
+| 📄 Starts from a blank form | 🔄 Auto-fill from your existing PDF resume |
+| 💸 Often locks PDF downloads behind paywalls | 📥 One-click, completely free PDF export |
+| 📌 One resume, tied to one device | ☁️ Multiple resumes saved securely in the cloud |
+
+---
+
+## 🔑 Demo Credentials
+
+Want to test the app without creating an account? Use these demo credentials:
+- **Email:** `demo@atsbuilder.com`
+- **Password:** `demo1234`
+*(Note: This is a read-only demo account. To save resumes, please register a new account!)*
 
 ---
 
@@ -92,75 +101,32 @@ This app solves both problems in one place: **build the resume**, then **score i
 
 | Service | Link |
 |---------|------|
-| 🖥️ Frontend (Vercel) | [ats-resume-builder-one-gamma.vercel.app](https://ats-resume-builder-one-gamma.vercel.app/) |
-| ⚙️ Backend API (Render) | [ats-resume-builder-cb3f.onrender.com/api](https://ats-resume-builder-cb3f.onrender.com/api) |
-| 📦 GitHub Repository | [abhishekgupta69/Ats-Resume-Builder](https://github.com/abhishekgupta69/Ats-Resume-Builder) |
+| 🖥️ **Frontend (Vercel)** | [ats-resume-builder-one-gamma.vercel.app](https://ats-resume-builder-one-gamma.vercel.app/) |
+| ⚙️ **Backend API (Render)** | [ats-resume-builder-cb3f.onrender.com/api](https://ats-resume-builder-cb3f.onrender.com/api) |
+| 📦 **GitHub Repository** | [abhishekgupta69/Ats-Resume-Builder](https://github.com/abhishekgupta69/Ats-Resume-Builder) |
 
-> ⏳ **Note:** The backend runs on a free Render plan, so the **first request after a period of inactivity can take up to a minute** while the server wakes up.
+> ⏳ **Note:** The backend runs on a free Render plan. The **first request after a period of inactivity may take up to 50 seconds** while the server wakes up. Subsequent requests will be instant.
 
 ---
 
 ## ✨ Features
 
 ### 📝 Resume Builder
-- **Live preview** — see your resume update in real time as you type
-- **Multiple templates** — switch between **Classic** and **Modern**
-- **Auto-fill from PDF** — upload an existing resume and all fields are filled for you
+- **Live Preview:** See your resume update in real-time as you type.
+- **Multiple Templates:** Switch instantly between **Classic** and **Modern** layouts.
+- **PDF Auto-Fill:** Upload an existing resume PDF to automatically parse and populate all fields.
 
 ### 🎯 ATS Score Checker
-- Paste a job description and compare it with your resume
-- Get a **compatibility score** and **actionable feedback** to improve it
+- Paste any job description and compare it with your resume.
+- Receive a **compatibility percentage** and **actionable feedback** on missing keywords and formatting improvements.
 
-### 📥 Export
-- **One-click PDF download** using `html2canvas` and `jsPDF`
+### 📥 Export & Storage
+- **One-Click PDF Download:** High-quality PDF generation using `html2canvas` and `jsPDF`.
+- **Cloud Persistence:** Securely save, load, and manage multiple resume versions in MongoDB.
 
-### 🔐 Accounts & Storage
-- **Secure login and registration** with JWT and bcrypt password hashing
-- **Cloud persistence** — save and manage multiple resumes in MongoDB
-
-### 📱 Responsive Design
-- Works on desktop, tablet and mobile
-
----
-
-## 📸 Screenshots
-
-> 📝 Add your screenshots to `client/public/screenshots/` using the file names below.
-
-<details>
-<summary><strong>🏠 Home Page</strong> — Click to expand</summary>
-<br/>
-<img src="client/public/screenshots/home.png" alt="Home Page" width="100%"/>
-<p><em>Landing page introducing the builder and the ATS checker</em></p>
-</details>
-
-<details>
-<summary><strong>📝 Resume Builder</strong> — Click to expand</summary>
-<br/>
-<img src="client/public/screenshots/builder.png" alt="Resume Builder" width="100%"/>
-<p><em>Form on one side, live resume preview on the other</em></p>
-</details>
-
-<details>
-<summary><strong>🎨 Templates</strong> — Click to expand</summary>
-<br/>
-<img src="client/public/screenshots/templates.png" alt="Templates" width="100%"/>
-<p><em>Switch between Classic and Modern layouts instantly</em></p>
-</details>
-
-<details>
-<summary><strong>🎯 ATS Score Checker</strong> — Click to expand</summary>
-<br/>
-<img src="client/public/screenshots/ats-checker.png" alt="ATS Checker" width="100%"/>
-<p><em>Compare your resume with a job description and see your score</em></p>
-</details>
-
-<details>
-<summary><strong>📂 Dashboard</strong> — Click to expand</summary>
-<br/>
-<img src="client/public/screenshots/dashboard.png" alt="Dashboard" width="100%"/>
-<p><em>Manage all your saved resumes in one place</em></p>
-</details>
+### 🔐 Security & UX
+- **Secure Authentication:** JWT-based login/registration with `bcryptjs` password hashing.
+- **Fully Responsive:** Flawless experience across desktop, tablet, and mobile devices.
 
 ---
 
@@ -173,13 +139,12 @@ This app solves both problems in one place: **build the resume**, then **score i
 ### 🖥️ Frontend
 | Technology | Purpose |
 |------------|---------|
-| **React.js** | UI library |
-| **Vite** | Fast build tool |
-| **JavaScript, HTML5, CSS3** | Core web stack |
-| **Axios** | API calls |
-| **html2canvas + jsPDF** | PDF export |
-| **pdfjs-dist** | Read text from uploaded PDFs |
-| **Vercel** | Deployment |
+| **React.js** | Component-based UI library |
+| **Vite** | Lightning-fast build tool & dev server |
+| **JavaScript (ES6+)** | Core programming language |
+| **Axios** | Promise-based HTTP client for API calls |
+| **html2canvas + jsPDF** | Client-side PDF generation |
+| **pdfjs-dist** | Extracting text from uploaded PDFs |
 
   </td>
   <td align="center" width="50%">
@@ -187,18 +152,17 @@ This app solves both problems in one place: **build the resume**, then **score i
 ### ⚙️ Backend
 | Technology | Purpose |
 |------------|---------|
-| **Node.js** | Runtime |
-| **Express.js** | Web framework |
-| **MongoDB + Mongoose** | Database and ODM |
-| **JWT** | Authentication |
-| **bcryptjs** | Password hashing |
-| **Render** | Deployment |
+| **Node.js** | JavaScript runtime environment |
+| **Express.js** | Minimalist web application framework |
+| **MongoDB + Mongoose** | NoSQL database and Object Data Modeling |
+| **JWT** | Secure, stateless user authentication |
+| **bcryptjs** | Secure password hashing |
 
   </td>
   </tr>
 </table>
 
-### 🔧 Tools
+### 🔧 Developer Tools
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white)
@@ -208,323 +172,13 @@ This app solves both problems in one place: **build the resume**, then **score i
 
 ## 🎯 How It Works
 
-```
-Step 1 ─── Sign Up / Log In ─────► Secure JWT-based account
+```text
+Step 1 ─── Sign Up / Log In ─────► Secure JWT-based account creation
     │
-Step 2 ─── Build Your Resume ────► Fill the form or upload an old PDF
+Step 2 ─── Build Your Resume ────► Fill the form manually or upload an old PDF
     │
-Step 3 ─── Pick a Template ──────► Classic or Modern, with live preview
+Step 3 ─── Pick a Template ──────► Toggle between Classic and Modern layouts
     │
-Step 4 ─── Check ATS Score ──────► Paste a job description, get feedback
+Step 4 ─── Check ATS Score ──────► Paste a job description, get a match score & feedback
     │
-Step 5 ─── Improve & Download ───► Fix the gaps, export as PDF, apply!
-```
-
-### Request Flow
-
-```
-👤 User
-  │
-  ▼
-🖥️ React + Vite (Vercel)
-  │   Axios + JWT token
-  ▼
-⚙️ Express API (Render)
-  ├── /api/auth     → Register / Login
-  ├── /api/resumes  → Create, read, update, delete
-  └── /api/ats      → Score resume vs job description
-  │
-  ▼
-🗄️ MongoDB Atlas
-```
-
----
-
-## 📂 Project Structure
-
-```
-ats-resume-builder/
-│
-├── 📁 client/                  # Frontend React application
-│   ├── src/
-│   │   ├── components/         # Reusable UI components
-│   │   ├── pages/              # Builder, ATSChecker, Dashboard, etc.
-│   │   ├── api/                # Axios configuration for API calls
-│   │   └── App.jsx             # Main application router
-│   ├── index.html
-│   ├── vite.config.js
-│   └── package.json
-│
-├── 📁 server/                  # Backend Node.js / Express application
-│   ├── config/
-│   │   └── db.js               # MongoDB connection
-│   ├── middleware/
-│   │   ├── auth.js             # JWT authentication middleware
-│   │   └── errorHandler.js     # Global error handler
-│   ├── models/
-│   │   ├── Resume.js           # Resume schema
-│   │   └── User.js             # User schema
-│   ├── routes/
-│   │   ├── ats.js              # ATS scoring endpoints
-│   │   ├── auth.js             # Authentication endpoints
-│   │   └── resume.js           # Resume CRUD endpoints
-│   ├── utils/                  # Helper functions
-│   ├── app.js                  # Express app configuration
-│   ├── index.js                # Server entry point
-│   └── package.json
-│
-├── 📁 api/
-│   └── index.js                # API utilities
-│
-├── .gitignore
-├── package.json                # Root package.json
-└── README.md
-```
-
----
-
-## 🚀 Getting Started
-
-### 📋 Prerequisites
-
-```bash
-Node.js   v18+
-npm       (comes with Node.js)
-Git
-MongoDB   Atlas account (or a local MongoDB instance)
-```
-
----
-
-### 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/abhishekgupta69/Ats-Resume-Builder.git
-cd Ats-Resume-Builder
-```
-
----
-
-### 2️⃣ Backend Setup
-
-**1. Go to the `server` folder**
-```bash
-cd server
-```
-
-**2. Install dependencies**
-```bash
-npm install
-```
-
-**3. Create a `.env` file in the `server` folder**
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string_here
-JWT_SECRET=your_super_secret_jwt_key_here
-```
-
-**4. Start the backend server**
-```bash
-npm run dev
-```
-
-> ✅ The server should start on **http://localhost:5000**
-
----
-
-### 3️⃣ Frontend Setup
-
-**1. Open a new terminal** (keep the backend running) and go to the `client` folder
-```bash
-cd client
-```
-
-**2. Install dependencies**
-```bash
-npm install
-```
-
-**3. Create a `.env` file in the `client` folder**
-```env
-VITE_API_URL=http://localhost:5000/api
-```
-
-**4. Start the development server**
-```bash
-npm run dev
-```
-
-**5. Open your browser**
-
-| Service | URL |
-|---------|-----|
-| 🌐 Frontend | http://localhost:5173 |
-| 🔌 Backend API | http://localhost:5000/api |
-
-> 🟢 Vite usually runs on port **5173**. If your terminal shows a different port, use that one.
-
----
-
-## 🔑 Environment Variables
-
-### Backend (`server/.env`)
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `PORT` | Port for the backend server | `5000` |
-| `MONGO_URI` | MongoDB connection string | `mongodb+srv://<user>:<password>@cluster.mongodb.net/ats-resume` |
-| `JWT_SECRET` | Secret key used to sign JWT tokens | `use_a_long_random_string` |
-
-### Frontend (`client/.env`)
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `VITE_API_URL` | Base URL for backend API calls | `http://localhost:5000/api` |
-
-> ⚠️ **Never commit your `.env` files.** Make sure `.env` is listed in `.gitignore`.
-
----
-
-## 📡 API Endpoints
-
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|:-------------:|
-| `POST` | `/api/auth/register` | Register a new user | ❌ |
-| `POST` | `/api/auth/login` | Login an existing user | ❌ |
-| `GET` | `/api/resumes` | Get all resumes of the logged-in user | ✅ |
-| `POST` | `/api/resumes` | Create a new resume | ✅ |
-| `PUT` | `/api/resumes/:id` | Update an existing resume | ✅ |
-| `DELETE` | `/api/resumes/:id` | Delete a resume | ✅ |
-| `POST` | `/api/ats/score` | Get the ATS score for a resume | ✅ |
-
-> 🔒 Protected routes need this header: `Authorization: Bearer <your_token>`
-
----
-
-## ☁️ Deployment
-
-### 🖥️ Frontend → Vercel
-
-1. Push your code to GitHub
-2. Import the repository on [Vercel](https://vercel.com)
-3. Set **Root Directory** to `client`
-4. Set **Framework Preset** to `Vite`
-5. Add the environment variable `VITE_API_URL` pointing to your live backend URL
-6. Click **Deploy**
-
-### ⚙️ Backend → Render
-
-1. Create a new **Web Service** on [Render](https://render.com)
-2. Connect your GitHub repository
-3. Set **Root Directory** to `server`
-4. Set **Build Command** to `npm install`
-5. Set **Start Command** to `node index.js`
-6. Add all environment variables from `server/.env`
-7. Click **Create Web Service**
-
----
-
-## 🧪 Testing
-
-You can test the API with [Postman](https://www.postman.com/) or any HTTP client.
-
-**Example login request:**
-
-```http
-POST http://localhost:5000/api/auth/login
-Content-Type: application/json
-
-{
-  "email": "test@example.com",
-  "password": "yourpassword"
-}
-```
-
----
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!
-
-```bash
-# 1. Fork the repository on GitHub
-
-# 2. Clone your fork
-git clone https://github.com/YOUR_USERNAME/Ats-Resume-Builder.git
-
-# 3. Create a feature branch
-git checkout -b feature/AmazingFeature
-
-# 4. Make your changes and commit
-git commit -m "feat: add AmazingFeature"
-
-# 5. Push to your fork
-git push origin feature/AmazingFeature
-
-# 6. Open a Pull Request 🎉
-```
-
-### Contribution Guidelines
-
-- ✅ Follow the existing code style and naming
-- ✅ Write clear commit messages
-- ✅ Keep each PR focused on one feature or fix
-- ✅ Update this README if your change affects setup or features
-
----
-
-## 🐛 Bug Reports & Feature Requests
-
-Found a bug or have an idea? [Open an issue](https://github.com/abhishekgupta69/Ats-Resume-Builder/issues) and include:
-
-- **Clear description** of the problem or idea
-- **Steps to reproduce** (for bugs)
-- **Expected vs actual behavior**
-- **Screenshots**, if they help
-
----
-
-## 👨‍💻 Author
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/abhishekgupta69">
-        <img src="https://github.com/abhishekgupta69.png" width="100" style="border-radius:50%" alt="Abhishek Kumar Gupta"/><br/>
-        <sub><b>Abhishek Kumar Gupta</b></sub>
-      </a><br/>
-      <a href="https://github.com/abhishekgupta69">GitHub</a> ·
-      <a href="www.linkedin.com/in/abhishek-kumar-gupta-7k6847069">LinkedIn</a> ·
-      <a href="mailto:abhishek910265@gmail.com">Email</a>
-    </td>
-  </tr>
-</table>
-
----
-
-## 🙏 Acknowledgments
-
-- [**Vite**](https://vitejs.dev) — Lightning-fast frontend build tool
-- [**Vercel**](https://vercel.com) — Frontend hosting
-- [**Render**](https://render.com) — Backend hosting
-- [**MongoDB Atlas**](https://www.mongodb.com/cloud/atlas) — Cloud database
-- The open-source community for the tools that made this possible
-
----
-
-## 📄 License
-
-This project is open-source and available under the **MIT License** 
-
----
-
-<div align="center">
-
-⭐ **If this project helped you, please give it a star!** ⭐
-
-<br/>
-
-Made with ❤️ by Abhishek Gupta
-
-</div>
+Step 5 ─── Improve & Download ───► Fix the gaps, export as a polished PDF, and apply!
