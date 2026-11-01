@@ -1,3 +1,6 @@
+<a href="https://ats-resume-builder-one-gamma.vercel.app/">
+  <img src="https://custom-icon-badges.demolab.com/badge/ATS_Resume_Builder-Live_Demo-2563EB?style=for-the-badge&logo=resume%20ats" alt="ATS Resume Builder"/>
+</a>
 <div align="center">
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=2563EB&center=true&vCenter=true&width=700&lines=🚀+ATS+Resume+Builder;Build.+Score.+Get+Hired." alt="Typing SVG" />
