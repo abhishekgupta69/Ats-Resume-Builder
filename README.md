@@ -1,11 +1,6 @@
-<div align="center">
-  
-  <a href="https://ats-resume-builder-one-gamma.vercel.app/">
-  <img src="https://custom-icon-badges.demolab.com/badge/ATS_Resume_Builder-Live_Demo-2563EB?logo=resume ats" alt="ATS Resume Builder"/>
-</a>
-
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=2563EB&center=true&vCenter=true&width=700&lines=🚀+ATS+Resume+Builder;Build.+Score.+Get+Hired." alt="Typing SVG" />
+<p align="center">
+  <img src="client/public/logo.png" alt="ATS Resume Builder logo" width="120"/>
+</p>
 
 <p align="center">
   <strong>Build, customize and export professional resumes — then check how well they score against any job description.</strong><br/>
