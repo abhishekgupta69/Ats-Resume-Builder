@@ -510,7 +510,7 @@ Found a bug or have an idea? [Open an issue](https://github.com/abhishekgupta69/
 
 ## 📄 License
 
-This project is open-source and available under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is open-source and available under the **MIT License** 
 
 ---
 
