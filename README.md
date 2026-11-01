@@ -495,7 +495,7 @@ Found a bug or have an idea? [Open an issue](https://github.com/abhishekgupta69/
         <sub><b>Abhishek Kumar Gupta</b></sub>
       </a><br/>
       <a href="https://github.com/abhishekgupta69">GitHub</a> ·
-      <a href="https://linkedin.com/in/abhishek-gupta">LinkedIn</a> ·
+      <a href="www.linkedin.com/in/abhishek-kumar-gupta-7k6847069">LinkedIn</a> ·
       <a href="mailto:abhishek910265@gmail.com">Email</a>
     </td>
   </tr>
