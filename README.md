@@ -1,7 +1,7 @@
 <div align="center">
 
 <p align="center">
-  <img src="client/public/logo.png" alt="ATS Resume Builder logo" width="120"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=2563EB&center=true&vCenter=true&width=700&height=50&lines=Build+your+resume.;Score+it+against+any+job+description.;Get+past+the+ATS.;Get+hired." alt="Typing SVG" />
 </p>
 
 <h1 align="center">🚀 ATS Resume Builder</h1>
