@@ -44,7 +44,7 @@
 <br/>
 
 <!-- Replace this with an actual screenshot of your app once you add it to client/public/screenshots/ -->
-<img src="https://via.placeholder.com/800x400/0f172a/2563EB?text=ATS+Resume+Builder+Screenshot" alt="ATS Resume Builder Dashboard" width="85%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
+<img src="https://via.placeholder.com/800x400/0f172a/2563EB?text=ATS+Resume+Builder+Screenshot" alt="ATS Resume Builder Dashboard" width="85%" />
 
 </div>
 
@@ -91,8 +91,10 @@ This app solves both problems in one place: **build the resume**, then **score i
 ## 🔑 Demo Credentials
 
 Want to test the app without creating an account? Use these demo credentials:
+
 - **Email:** `demo@atsbuilder.com`
 - **Password:** `demo1234`
+
 *(Note: This is a read-only demo account. To save resumes, please register a new account!)*
 
 ---
@@ -132,11 +134,8 @@ Want to test the app without creating an account? Use these demo credentials:
 
 ## 🛠️ Tech Stack
 
-<table>
-  <tr>
-    <td align="center" width="50%">
-
 ### 🖥️ Frontend
+
 | Technology | Purpose |
 |------------|---------|
 | **React.js** | Component-based UI library |
@@ -146,10 +145,8 @@ Want to test the app without creating an account? Use these demo credentials:
 | **html2canvas + jsPDF** | Client-side PDF generation |
 | **pdfjs-dist** | Extracting text from uploaded PDFs |
 
-  </td>
-  <td align="center" width="50%">
-
 ### ⚙️ Backend
+
 | Technology | Purpose |
 |------------|---------|
 | **Node.js** | JavaScript runtime environment |
@@ -158,11 +155,8 @@ Want to test the app without creating an account? Use these demo credentials:
 | **JWT** | Secure, stateless user authentication |
 | **bcryptjs** | Secure password hashing |
 
-  </td>
-  </tr>
-</table>
-
 ### 🔧 Developer Tools
+
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white)
@@ -182,3 +176,226 @@ Step 3 ─── Pick a Template ──────► Toggle between Classic an
 Step 4 ─── Check ATS Score ──────► Paste a job description, get a match score & feedback
     │
 Step 5 ─── Improve & Download ───► Fix the gaps, export as a polished PDF, and apply!
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+ats-resume-builder/
+│
+├── 📁 client/                  # Frontend React application
+│   ├── src/
+│   │   ├── components/         # Reusable UI components (Navbar, Footer, etc.)
+│   │   ├── pages/              # Main views (Builder, ATSChecker, Dashboard, Auth)
+│   │   ├── api/                # Axios instance and API call configurations
+│   │   └── App.jsx             # Main application router
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
+│
+├── 📁 server/                  # Backend Node.js / Express application
+│   ├── config/
+│   │   └── db.js               # MongoDB connection configuration
+│   ├── middleware/
+│   │   ├── auth.js             # JWT verification middleware
+│   │   └── errorHandler.js     # Global error handling middleware
+│   ├── models/
+│   │   ├── Resume.js           # Mongoose Resume schema
+│   │   └── User.js             # Mongoose User schema
+│   ├── routes/
+│   │   ├── ats.js              # ATS scoring logic and endpoints
+│   │   ├── auth.js             # Registration and login endpoints
+│   │   └── resume.js           # Resume CRUD endpoints
+│   ├── utils/                  # Helper functions
+│   ├── app.js                  # Express app configuration
+│   ├── index.js                # Server entry point
+│   └── package.json
+│
+├── .gitignore
+├── package.json                # Root package.json
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### 📋 Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [Git](https://git-scm.com/)
+- A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account (or a local MongoDB instance)
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/abhishekgupta69/Ats-Resume-Builder.git
+cd Ats-Resume-Builder
+```
+
+### 2️⃣ Backend Setup
+
+1. Navigate to the `server` folder:
+   ```bash
+   cd server
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the `server` folder and add:
+   ```env
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string_here
+   JWT_SECRET=your_super_secret_jwt_key_here
+   ```
+4. Start the backend server:
+   ```bash
+   npm run dev
+   ```
+   > ✅ The server should start on **http://localhost:5000**
+
+### 3️⃣ Frontend Setup
+
+1. Open a **new terminal** (keep the backend running) and navigate to the `client` folder:
+   ```bash
+   cd client
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the `client` folder:
+   ```env
+   VITE_API_URL=http://localhost:5000/api
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open your browser and visit: **http://localhost:5173**
+
+---
+
+## 🔑 Environment Variables
+
+### Backend (`server/.env`)
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `PORT` | Port for the backend server | `5000` |
+| `MONGO_URI` | MongoDB connection string | `mongodb+srv://<user>:<pass>@cluster.mongodb.net/ats` |
+| `JWT_SECRET` | Secret key used to sign JWT tokens | `use_a_long_random_string` |
+
+### Frontend (`client/.env`)
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `VITE_API_URL` | Base URL for backend API calls | `http://localhost:5000/api` |
+
+> ⚠️ **Security Note:** Never commit your `.env` files. Ensure `.env` is listed in your `.gitignore`.
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|:-------------:|
+| `POST` | `/api/auth/register` | Register a new user | ❌ |
+| `POST` | `/api/auth/login` | Login an existing user | ❌ |
+| `GET` | `/api/resumes` | Get all resumes for the logged-in user | ✅ |
+| `POST` | `/api/resumes` | Create a new resume | ✅ |
+| `PUT` | `/api/resumes/:id` | Update an existing resume | ✅ |
+| `DELETE` | `/api/resumes/:id` | Delete a resume | ✅ |
+| `POST` | `/api/ats/score` | Get the ATS compatibility score | ✅ |
+
+> 🔒 Protected routes require this header: `Authorization: Bearer <your_jwt_token>`
+
+---
+
+## ☁️ Deployment
+
+### 🖥️ Frontend → Vercel
+
+1. Push your code to GitHub.
+2. Import the repository on [Vercel](https://vercel.com).
+3. Set **Root Directory** to `client`.
+4. Set **Framework Preset** to `Vite`.
+5. Add the environment variable `VITE_API_URL` pointing to your live Render backend URL.
+6. Click **Deploy**.
+
+### ⚙️ Backend → Render
+
+1. Create a new **Web Service** on [Render](https://render.com).
+2. Connect your GitHub repository.
+3. Set **Root Directory** to `server`.
+4. Set **Build Command** to `npm install`.
+5. Set **Start Command** to `node index.js`.
+6. Add all environment variables from `server/.env`.
+7. Click **Create Web Service**.
+
+---
+
+## 🗺️ Future Roadmap
+
+- [ ] **AI-Powered Bullet Point Generator:** Integrate OpenAI API to suggest impactful resume bullet points based on job titles.
+- [ ] **More Templates:** Add 2-3 additional premium resume templates (e.g., Minimalist, Creative).
+- [ ] **Cover Letter Generator:** Auto-generate tailored cover letters based on the resume and job description.
+- [ ] **Dark Mode:** Add a system-aware dark/light mode toggle for better accessibility.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are highly welcome!
+
+```bash
+# 1. Fork the repository on GitHub
+# 2. Clone your fork
+git clone https://github.com/YOUR_USERNAME/Ats-Resume-Builder.git
+# 3. Create a feature branch
+git checkout -b feature/AmazingFeature
+# 4. Make your changes and commit
+git commit -m "feat: add AmazingFeature"
+# 5. Push to your fork
+git push origin feature/AmazingFeature
+# 6. Open a Pull Request 🎉
+```
+
+---
+
+## 👨‍💻 Author
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/abhishekgupta69">
+        <img src="https://github.com/abhishekgupta69.png" width="100" alt="Abhishek Kumar Gupta"/><br/>
+        <sub><b>Abhishek Kumar Gupta</b></sub>
+      </a><br/>
+      <a href="https://github.com/abhishekgupta69">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/abhishek-kumar-gupta-7k6847069">LinkedIn</a> ·
+      <a href="mailto:abhishek910265@gmail.com">Email</a>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+
+⭐ **If this project helped you or inspired you, please give it a star!** ⭐
+
+<br/>
+
+Made with ❤️ and ☕ by Abhishek Gupta
+
+</div>
