@@ -1,7 +1,5 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as pdfjsLib from 'pdfjs-dist';
-import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import api from '../api/axios';
@@ -286,12 +284,6 @@ export default function Builder() {
 
       <div className="builder-grid">
         <div>
-          <div className="panel">
-            <h3>📄 Upload Existing PDF to Auto-Fill</h3>
-            <input type="file" accept="application/pdf" onChange={handleFileUpload} disabled={isParsing} />
-            {isParsing && <p className="muted">⏳ Parsing your resume...</p>}
-          </div>
-
           <div className="panel">
             <h3>Personal Information</h3>
             <input type="text" placeholder="Full Name" value={resumeData.fullName} onChange={(e) => handleChange('fullName', e.target.value)} />
