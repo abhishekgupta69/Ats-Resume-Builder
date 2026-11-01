@@ -1,6 +1,11 @@
+<div align="center">
+
 <p align="center">
   <img src="client/public/logo.png" alt="ATS Resume Builder logo" width="120"/>
 </p>
+
+<h1 align="center">🚀 ATS Resume Builder</h1>
+<h3 align="center">Build. Score. Get Hired.</h3>
 
 <p align="center">
   <strong>Build, customize and export professional resumes — then check how well they score against any job description.</strong><br/>
