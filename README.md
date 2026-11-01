@@ -4,7 +4,7 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=2563EB&center=true&vCenter=true&width=700&height=50&lines=Build+your+resume.;Score+it+against+any+job+description.;Get+past+the+ATS.;Get+hired." alt="Typing SVG" />
 </p>
 
-<h1 align="center">🚀 ATS Resume Builder</h1>
+<h1 align="center">ResumeATS - ATS Resume Builder and Scoring Platformr</h1>
 <h3 align="center">Build. Score. Get Hired.</h3>
 
 <p align="center">
